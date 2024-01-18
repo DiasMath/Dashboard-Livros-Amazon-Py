@@ -15,7 +15,7 @@ book = st.sidebar.selectbox("books", books)
 
 # Reviews - Titulo
 df_book = df_top100_books[df_top100_books["book title"] == book]
-df_book_f = df_reviews[df_reviews["book name"] == book]
+df_reviews_f = df_reviews[df_reviews["book name"] == book]
 
 book_title = df_book["book title"].iloc[0]
 book_genre = df_book["genre"].iloc[0]
@@ -33,6 +33,11 @@ col3.metric("Year of Publication", book_year)
 
 st.divider()
 
+# Reviews - Mensagem
+for row in df_reviews_f.values:
+    message = st.chat_message(f"{row[4]}")
+    message.write(f"**<span style='font-size:26px'>\"{row[2]}\"</span>**", unsafe_allow_html=True)
+    message.write(row[5])
 
 
 
