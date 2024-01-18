@@ -1,0 +1,6 @@
+- panda
+- streamlit
+- plotly
+- python
+- arquivo csv
+- vscode
